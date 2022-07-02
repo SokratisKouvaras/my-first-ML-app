@@ -6,5 +6,13 @@ app.debug = False
 @app.route('/')
 @app.route('/home')
 @app.route('/index')
-def hello(name=None):
+def home(name=None):
     return render_template('index.html', name=name)
+
+@app.route('/model1')
+def model1(name=None):
+    return render_template('model1.html', name=name)
+
+@app.route('/model2')
+def model2(name=None):
+    return render_template('model2.html', name=name)
