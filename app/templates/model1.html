@@ -1,3 +1,5 @@
+<!-- Import reuseable components -->
+{% from 'macros.html' import sidebar %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -10,27 +12,9 @@
 </head>
   <body>
     <div id="wrapper">
-
-        <!-- Sidebar -->
-        <nav>
-            <div id="sidebar-wrapper">
-                <ul class="sidebar-nav">
-                    <li class="sidebar-brand">
-                        <a href="#">
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('model1') }}">Model 1</a>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('model2') }}">Model 2</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <!-- /#sidebar-wrapper -->
-
+    <!-- Sidebar -->
+    {{ sidebar() }}
+    <!-- /#sidebar-wrapper -->
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
