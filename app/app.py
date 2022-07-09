@@ -14,17 +14,8 @@ def home(name=None):
 def model1(name=None):
     return render_template('model1.html', name=name)
 
-
-@app.route('/model2', methods=['GET','POST'])
-def model2(name=None):
-    return render_template('model2.html', name=name)
-
-@app.route('/test', methods=['GET'])
-def test(name=None):
-    return render_template('test.html', name=name)
-
-@app.route("/test/download", methods=['POST'])
-def getPlotCSV():
+@app.route("/model1/download", methods=['GET'])
+def getPredictionsCSV():
     # with open("outputs/Adjacency.csv") as fp:
     #     csv = fp.read()
     csv = '1,2,3\n4,5,6\n'
@@ -32,9 +23,9 @@ def getPlotCSV():
         csv,
         mimetype="text/csv",
         headers={"Content-disposition":
-                 "attachment; filename=myplot.csv"})
+                 "attachment; filename=predictions.csv"})
 
-@app.route('/test', methods=['POST'])
+@app.route('/model1/upload', methods=['POST'])
 def uploadmodel1():
     uploaded_file = request.files['file']
     if uploaded_file.filename != '':
@@ -42,3 +33,12 @@ def uploadmodel1():
         uploaded_file.save(filepath)
         print('FILE SAVED')
         return()
+
+@app.route('/model2', methods=['GET','POST'])
+def model2(name=None):
+    return render_template('model2.html', name=name)
+
+
+
+
+
