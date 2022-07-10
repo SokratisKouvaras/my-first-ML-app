@@ -47,7 +47,8 @@ def uploadmodel1():
                 for row in csv_file:
                     uploaded_file.append(row)
             return redirect(url_for("model1"))
-
+        else:
+            raise Exception
     except Exception as e:
         print(f"Exception:{e}")
         resp = make_response(render_template("error.html"), 404)
