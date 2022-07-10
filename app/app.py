@@ -1,9 +1,14 @@
 from flask import Flask, Response, render_template, request, make_response
 from static import *
 import os
+import pickle
+import sklearn
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
 app.debug = False
+
+model1 = pickle.load(open('ml_models/model.pickle', 'rb'))
+
 
 
 @app.route("/", methods=["GET"])
