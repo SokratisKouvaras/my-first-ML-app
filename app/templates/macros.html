@@ -31,6 +31,7 @@
 {% endmacro %}
 
 {% macro head(title) %}
+
 <head>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
     <meta charset="utf-8">
@@ -42,3 +43,14 @@
 </head>
 {% endmacro %}
 
+{% macro upload(endpoint) %}
+<form action={{endpoint}} method="post" enctype="multipart/form-data">
+    <div>
+        <label for="file">Choose file to upload</label>
+        <input type="file" id="file" name="file" accept=".csv">
+    </div>
+    <div>
+        <button>Submit</button>
+    </div>
+</form>
+{% endmacro %}
